@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block title %} Home page {% endblock %} {% block content %}
+{% load static %}
+<section class="contact-section" style="padding-bottom:20px;">
+  <div style="width: 80%; text-align: left; display: inline-block;">
+    {% for author in authors %}
+    <div class="author" style="border: 5px solid; border-color: black; border-radius: 10px; min-height: 100px; width: 100%; display: inline-block; padding: 10px; margin: 10px;">
+      <img style="border-color: black; border: 5px solid; border-radius: 50%; height: 90px; margin-right: 20px;" src={% static "img/"|add:author.imgsrc %}></img>
+      <span style="font-size: 20px; font-weight: bold;">{{ author.lastname }}  {{ author.firstname }}</span>
+      <p style="margin-top: 15px;">{{ author.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+</section>
+
+{% endblock %}
