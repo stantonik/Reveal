@@ -3,8 +3,10 @@ function onLoad()
 {
 }
 
-function periodButton()
+function periodButton(button)
 {
+  button.style.background = "#3498db";
+
   document.getElementById("period-loader").style.opacity = 1;
   document.getElementById("disabled-mask").style.visibility = 'visible';
   document.getElementById("disabled-mask").style.opacity = 0.5;

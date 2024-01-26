@@ -14,7 +14,7 @@
       <div class="subfilter" id="period-filter">
         {% csrf_token %}
         {% for period in periods %}
-        <button name="period" id="{{ period }}_button" value={{ period }} onclick="periodButton()" type="submit">{{ period }}</button>
+        <button name="period" id="{{ period }}_button" value={{ period }} onclick="periodButton(this)" type="submit" {% if period == selected_period %}style="background-color: #3498db;"{% endif %}>{{ period }}</button>
         {% endfor %}
       </div>
     </div>
