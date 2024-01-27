@@ -25,7 +25,7 @@ Then install the dependencies:
 pip install -r requirements.txt
 ```
 
-You need to download real estate data, rename it correclty and move it into *Reveal/assets/*. Here is the links:
+You need to download real estate data, rename it correclty and move it into *assets/* directory. Here is the links:
 - [**Real estate data 2019**](https://www.data.gouv.fr/fr/datasets/r/3004168d-bec4-44d9-a781-ef16f41856a2)
 - [**Real estate data 2020**](https://www.data.gouv.fr/fr/datasets/r/90a98de0-f562-4328-aa16-fe0dd1dca60f)
 - [**Real estate data 2021**](https://www.data.gouv.fr/fr/datasets/r/817204ac-2202-4b4a-98e7-4184d154d98c)
@@ -38,7 +38,6 @@ That's it! You're ready to go.
 To run the project, just run the following command:
 
 ```bash
-cd Reveal
 python manage.py runserver
 ```
 
