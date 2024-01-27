@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block title %} Home page {% endblock %} {% block content %}
+
+<div style="text-align: left; margin-top: 100px; padding-left: 5%;">
+  <h2>Analyse spéciale Covid-19</h2>
+  <p>Ces graphiques nous montrent l'impact majeur qu'a eu la Covid et le confinement sur l'immobilier.</p>
+</div>
+
+<!-- Display charts -->
+<section class="visualization" style="padding-bottom: 15px;">
+  {% for name, chart in charts.items %}
+  <div>
+    <p style="margin-top: 40px; font-weight: bold; font-size: 20px;">#{{ forloop.counter }} - {{ name  }}</p>
+    <div class="chart">
+      {{ chart|safe }}
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

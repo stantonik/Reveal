@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% block title %} Home page {% endblock %} {% block content %}
+
+<section class="filters">
+
+  <div id="disabled-mask"></div>
+  <div id="loader-parent" style="padding: 20px;">
+    <div class="loader" id="period-loader"></div>
+  </div>
+
+  <!-- Period selection -->
+  <p style="margin-top: 40px; font-weight: bold; font-size: 20px;">Select a year</p>
+  <form method="post">
+    <div id="period-filter-div">
+      <div class="subfilter" id="period-filter">
+        {% csrf_token %}
+        {% for period in periods %}
+        <button name="period" id="{{ period }}_button" value={{ period }} onclick="periodButton(this)" type="submit" {% if period == selected_period %}style="background-color: #3498db;"{% endif %}>{{ period }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div id="filters-div">
+      
+    </div>
+
+</section>
+
+{% if selected_period != None %}
+
+<!-- Display charts -->
+<section class="visualization">
+  {% for name, chart in charts.items %}
+  <div>
+    <p style="margin-top: 40px; font-weight: bold; font-size: 20px;">#{{ forloop.counter }} - {{ name  }}</p>
+    <div class="chart">
+      {{ chart|safe }}
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<!-- Display 100 first elements of the dataframe -->
+<div id="dataframe">
+  Here is a list of the 100 first components
+  <table>
+    <thead>
+      <tr>
+        {% for h in dataframe.columns %}
+        <th>{{ h }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in dataframe.values %}
+      <tr>
+        {% for val in row %}
+        <td>{{ val }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+{% endblock %}
